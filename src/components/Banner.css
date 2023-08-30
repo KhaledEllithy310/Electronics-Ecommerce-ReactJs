@@ -1,0 +1,75 @@
+:root {
+  --background-color: #f5f5f5;
+}
+img {
+  width: 100%;
+  display: block;
+}
+
+.img__container {
+  text-align: center;
+  position: relative;
+}
+
+.img__container img {
+  width: 350px;
+  position: absolute;
+  right: -20px;
+  top: -40px;
+  z-index: 0;
+  transform: scale(1);
+  transition: all 0.5s;
+}
+
+.sub__banner__container {
+  background-color: var(--background-color);
+  margin: 10px !important;
+  padding: 30px 20px;
+  border-radius: 5px;
+}
+
+.sub__banner__container:hover .img__container img {
+  transform: scale(1.1);
+}
+.description__banner {
+  font-family: "Open Sans", sans-serif;
+}
+
+.description__banner h3 {
+  font-size: 22px;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.description__banner h4 {
+  font-size: 22px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.description__banner__discount {
+  display: flex;
+  flex-flow: row nowrap;
+  /* justify-content: space-between; */
+  align-items: baseline;
+  gap: 5px;
+}
+
+.description__banner__discount__text {
+  font-size: 15px;
+  text-transform: capitalize;
+}
+
+.description__banner__discount__price {
+  font-size: 38px;
+  position: relative;
+  padding-left: 20px;
+  font-weight: 600;
+}
+
+.description__banner__discount__price span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 26px;
+}

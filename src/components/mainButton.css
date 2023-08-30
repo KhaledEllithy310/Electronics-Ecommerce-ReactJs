@@ -1,0 +1,13 @@
+.main__btn {
+  background-color: var(--main-color);
+  text-transform: capitalize;
+  padding: 10px 40px;
+  border-radius: 30px;
+  border: none;
+  transition: all 0.5s;
+}
+
+.main__btn:hover {
+  background-color: var(--sec-color);
+  color: white;
+}
