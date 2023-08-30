@@ -10,7 +10,7 @@ const Banner = ({ img, title, productName, price }) => {
   };
   return (
     <Row className="sub__banner__container">
-      <Col xl={8}>
+      <Col xl={9}>
         {" "}
         <div className="description__banner">
           <h3>{data.title}</h3>
@@ -24,7 +24,7 @@ const Banner = ({ img, title, productName, price }) => {
           </div>
         </div>
       </Col>
-      <Col xl={4}>
+      <Col xl={3}>
         <div className="img__container">
           {" "}
           <img src={data.img} alt="" />

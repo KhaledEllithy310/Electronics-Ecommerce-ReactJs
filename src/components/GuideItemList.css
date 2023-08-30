@@ -1,0 +1,47 @@
+:root {
+  --main-font-color: #333e48;
+  --sec-font-color: #666666;
+  --main-color: #fedc20;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.feature__container {
+  border: 2px solid var(--main-color);
+  padding: 20px;
+}
+.GuideItem__title {
+  font-size: 16px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  color: var(--main-font-color);
+  letter-spacing: 0.5px;
+  transition: all 0.3s;
+}
+
+.GuideItem__description {
+  font-size: 15px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 200;
+  color: var(--sec-font-color);
+}
+
+.GuideItem__icon {
+  text-align: center;
+  font-size: 40px;
+  transition: all 0.3s;
+}
+.border_right {
+  border-right: 1px solid rgba(0, 0, 0, 0.233);
+}
+
+.feature__item__container {
+  margin-inline: 10px;
+}
+
+.feature__item__container:hover .GuideItem__icon,
+.feature__item__container:hover .GuideItem__title {
+  color: var(--main-color);
+}
