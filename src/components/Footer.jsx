@@ -3,7 +3,7 @@ import "./Footer.css";
 const Footer = () => {
   return (
     <Container>
-      <Row>
+      <Row className="py-4">
         <Col xl={4}>
           <div className="footer__about">
             <div className="main__title">About Information</div>
@@ -13,7 +13,7 @@ const Footer = () => {
             </div>
           </div>
         </Col>
-        <Col xl={3}>
+        <Col xl={2}>
           <div className="footer__products">
             <div className="main__title">Products</div>
             <div className="footer__main__list">
@@ -42,7 +42,7 @@ const Footer = () => {
         </Col>
         <Col xl={3}>
           {" "}
-          <div className="footer__products">
+          <div className="footer__Company">
             <div className="main__title">Our Company</div>
             <div className="footer__main__list">
               <li>
@@ -68,7 +68,27 @@ const Footer = () => {
             </div>
           </div>
         </Col>
-        <Col xl={3}></Col>
+        <Col xl={3}>
+          <div className="footer__products">
+            <div className="main__title">Store Information</div>
+            <div className="footer__main__list">
+              <li>
+                <i className="bi bi-geo-alt-fill"></i>{" "}
+                <p>
+                  Electhub - Electronics Store 507-Union Trade Centre France
+                </p>
+              </li>
+              <li>
+                <i className="bi bi-telephone-fill"></i>
+                <p>(+91) 9876-543-210</p>
+              </li>
+              <li>
+                <i className="bi bi-envelope-fill"></i>{" "}
+                <p type="email">sales@yourcompany.com</p>
+              </li>
+            </div>
+          </div>
+        </Col>
       </Row>
     </Container>
   );

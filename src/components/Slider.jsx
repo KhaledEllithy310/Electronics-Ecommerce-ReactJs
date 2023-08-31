@@ -10,22 +10,24 @@ import MainButton from "./mainButton";
 const Slider = () => {
   return (
     <Container className="py-5">
-      <Carousel indicators={false}>
+      <Carousel indicators={false} className="Carousel__container">
         <Carousel.Item>
-          <img src={img1} alt="" />
-          <div className="description__slider">
-            <h3>END SEASON</h3>
-            <h4>SMARTPHONES</h4>
-            <div className="description__slider__discount">
-              <div className="description__slider__discount__text">
-                Last Call for up to
+          <div className="slide__container">
+            <img src={img1} alt="" />
+            <div className="description__slider">
+              <h3>END SEASON</h3>
+              <h4>SMARTPHONES</h4>
+              <div className="description__slider__discount">
+                <div className="description__slider__discount__text">
+                  Last Call for up to
+                </div>
+                <div className="description__slider__discount__price">
+                  <span>$</span> 250
+                </div>
+                <div className="description__slider__discount__text">off!</div>
               </div>
-              <div className="description__slider__discount__price">
-                <span>$</span> 250
-              </div>
-              <div className="description__slider__discount__text">off!</div>
+              <MainButton title="start buying" />
             </div>
-            <MainButton title="start buying" />
           </div>
         </Carousel.Item>
         <Carousel.Item>
@@ -46,6 +48,24 @@ const Slider = () => {
           </div>
         </Carousel.Item>
       </Carousel>
+      <div className="slide__container__small">
+            <img src={img1} alt="" />
+            <div className="description__slider">
+              <h3>END SEASON</h3>
+              <h4>SMARTPHONES</h4>
+              <div className="description__slider__discount">
+                <div className="description__slider__discount__text">
+                  Last Call for up to
+                </div>
+                <div className="description__slider__discount__price">
+                  <span>$</span> 250
+                </div>
+                <div className="description__slider__discount__text">off!</div>
+              </div>
+              <MainButton title="start buying" className="btn__small" />
+            </div>
+          </div>
+
     </Container>
   );
 };

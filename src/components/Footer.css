@@ -22,11 +22,17 @@
   background-color: var(--main-color);
 }
 
+.footer__about {
+  padding-right: 23px;
+}
 .footer__about__description {
   color: var(--sec-font-color);
   width: 90%;
 }
 
+.footer__Company {
+  padding-left: 30px;
+}
 .footer__main__list li {
   list-style: none;
   margin-bottom: 8px;
@@ -41,8 +47,15 @@
   left: -8px;
   top: 1px;
 }
-.footer__main__list li a {
+
+.footer__main__list li a,
+.footer__main__list li p {
   transition: all 0.3s;
+  padding-left: 3px;
+}
+
+.footer__main__list li p {
+  cursor: auto;
 }
 .footer__main__list li a:hover {
   padding-left: 10px;

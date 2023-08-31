@@ -2,6 +2,7 @@ import "./App.css";
 import BannerList from "./components/BannerList";
 import Footer from "./components/Footer";
 import GuideItemList from "./components/GuideItemList";
+import Newsletter from "./components/Newsletter";
 import Slider from "./components/Slider";
 import Home from "./pages/Home";
 <link
@@ -15,6 +16,7 @@ function App() {
       <Slider />
       <BannerList />
       <GuideItemList />
+      <Newsletter />
       <Footer />
     </>
   );

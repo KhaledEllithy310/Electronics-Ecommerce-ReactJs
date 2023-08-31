@@ -10,7 +10,7 @@ const BannerList = () => {
       <div className="banners__container">
         {" "}
         <Row>
-          <Col xl={4}>
+          <Col lg={4} md={6}>
             <Banner
               img={img1}
               title="CATCH BIG DEALS"
@@ -18,7 +18,7 @@ const BannerList = () => {
               price="250"
             />
           </Col>
-          <Col lg={4}>
+          <Col lg={4} md={6}>
             <Banner
               img={img2}
               title="NEW STANDARD"
@@ -26,7 +26,7 @@ const BannerList = () => {
               price="199"
             />
           </Col>
-          <Col lg={4}>
+          <Col lg={4} md={6}>
             <Banner
               img={img3}
               title="BIG THE STANDARD"

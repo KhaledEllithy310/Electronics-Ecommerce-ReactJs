@@ -1,0 +1,98 @@
+:root {
+  --main-font-color: #333e48;
+  --sec-font-color: #666666;
+  --main-color: #fedc20;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.newsLetter__container {
+  background-color: var(--main-color);
+  padding: 30px 0;
+}
+
+.newsLetter__text,
+.newsLetter__contact {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 15px;
+  margin: 20px 0;
+}
+
+.newsLetter__text i {
+  margin: 0;
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.newsLetter__text p {
+  margin: 0;
+  font-size: 25px;
+  font-weight: 600;
+}
+
+.newsLetter__contact {
+  position: relative;
+}
+
+.input__newsLetter {
+  width: 100%;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+}
+
+.input__newsLetter:focus {
+  outline: none;
+}
+
+.input__newsLetter::placeholder {
+  text-transform: capitalize;
+}
+
+.newsLetter__contact button {
+  position: absolute;
+  right: 10px;
+  font-size: 20px;
+  padding: 0 10px;
+  border-left: 1px solid rgba(0, 0, 0, 0.222);
+  cursor: pointer;
+  transition: all 0.3s;
+  background-color: transparent;
+}
+
+.newsLetter__contact button:hover {
+  color: var(--main-color);
+}
+
+button {
+  border: none;
+  /* padding: 5px; */
+}
+
+.social__icons {
+  list-style: none;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  gap: 20px;
+  font-size: 25px;
+  margin: 20px 0;
+}
+
+.social__icons li {
+  margin-left: 20px;
+  cursor: pointer;
+  transition: all 0.3s;
+  color: var(--main-font-color);
+}
+
+.social__icons li:hover {
+  color: white;
+}
