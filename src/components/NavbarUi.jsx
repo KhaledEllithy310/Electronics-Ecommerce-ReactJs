@@ -20,8 +20,8 @@ const NavbarUi = () => {
     }
   };
   return (
-    <>
-      <Row className="navbar__container">
+    <div className="navbar__container">
+      <Row>
         <Col xl={12}>
           <Container>
             <div className="nav__top">
@@ -145,7 +145,7 @@ const NavbarUi = () => {
           </Navbar>
         </Col>
       </Row>
-    </>
+    </div>
   );
 };
 

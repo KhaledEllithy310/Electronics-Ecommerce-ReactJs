@@ -9,8 +9,13 @@
   box-sizing: border-box;
 }
 .feature__container {
+  text-align: center;
+  padding: 30px 0;
+}
+
+.feature__container__inner {
   border: 2px solid var(--main-color);
-  padding: 20px;
+  padding: 10px;
 }
 .GuideItem__title {
   font-size: 16px;
@@ -38,10 +43,31 @@
 }
 
 .feature__item__container {
-  margin-inline: 10px;
+  margin-inline: 20px;
 }
 
 .feature__item__container:hover .GuideItem__icon,
 .feature__item__container:hover .GuideItem__title {
   color: var(--main-color);
+}
+
+@media screen and (max-width: 1200px) {
+  .border_right__none {
+    border-right: none;
+  }
+
+  .feature__item__container {
+    margin: 20px;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .border_right__none_small {
+    border-right: none ;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.342);
+  }
+
+  .feature__item__container {
+    margin: 20px;
+  }
 }
