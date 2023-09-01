@@ -1,0 +1,186 @@
+:root {
+  --main-font-color: #333e48;
+  --sec-font-color: #666666;
+  --main-color: #fedc20;
+}
+
+.product {
+  /* width: 250px; */
+  /* background-color: #eee; */
+  border: 1px solid #eee;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 10px;
+  position: relative;
+  overflow: hidden;
+}
+
+.product__image img {
+  height: 200px;
+  transform: scale(1);
+  transition: all 0.2s;
+}
+
+.product__content__rating {
+  list-style: none;
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 3px;
+  color: var(--main-color);
+  font-size: 14px;
+}
+
+.product__content__text {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--main-font-color);
+  margin: 4px 0;
+  font-family: "Geologica", sans-serif;
+}
+
+.product__content__price {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--main-font-color);
+}
+
+.product__icons {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  transform: translateY(-20px);
+  opacity: 0;
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 8px;
+  transition: transform 0.3s, opacity 0.2s;
+}
+
+.product__icons li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #66666639;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  padding: 5px;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.product__icons li:hover {
+  background-color: var(--main-color);
+}
+
+.product:hover .product__icons {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.product:hover .product__image img {
+  transform: scale(1.04);
+}
+
+/* .splide__arrow {
+  background-color: var(--main-color) !important;
+  border-radius: 50% !important;
+  padding: 8px !important;
+  position: absolute;
+  top: 20px !important;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.splide__arrow:hover {
+  background-color: var(--main-font-color) !important;
+}
+
+#slider__container button.splide__arrow.splide__arrow--prev {
+  right: 3.75rem !important;
+} */
+
+.slider__container {
+  padding: 40px 0;
+}
+
+.slider__container__inner {
+  margin-inline: -10px;
+}
+
+/* Move the arrow navigation to the top right corner */
+/* .splide__arrows {
+  top: -10px !important;
+  right: 10px !important;
+} */
+
+/* Adjust the size and color of the arrow icons */
+.splide__arrow svg {
+  width: 24px !important;
+  height: 20px !important ;
+  fill: var(--main-font-color) !important;
+}
+
+.splide__arrow--prev,
+.splide__arrow--next {
+  background-color: #ddd !important;
+  padding: 8px !important;
+  top: -35px !important;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.splide__arrow--prev {
+  left: 94% !important;
+}
+
+.splide__arrow--next {
+  left: 97% !important;
+  margin: 0 10px;
+}
+
+.splide__arrow--next:hover,
+.splide__arrow--prev:hover {
+  background-color: var(--main-color) !important;
+}
+
+.product__title {
+  font-size: 25px;
+  font-family: "Geologica", sans-serif;
+  font-weight: 600;
+  text-transform: capitalize;
+  padding-bottom: 15px;
+  position: relative;
+  border-bottom: 1px solid #ddd;
+}
+
+.product__title::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  width: 100px;
+  background-color: var(--main-color);
+}
+
+.product__discount {
+  font-family: "Geologica", sans-serif;
+  background-color: red;
+  color: white;
+  font-size: 12px;
+  padding: 0px 6px;
+  border-radius: 2px;
+  border: none;
+  position: absolute;
+  top: 20px;
+  left: 0;
+  /* transform: translateX(-35px); */
+  /* opacity: 0; */
+  /* transition: all 0.3s; */
+}
+
+/* .product:hover .product__discount {
+  transform: translateX(0px);
+  opacity: 1;
+} */
