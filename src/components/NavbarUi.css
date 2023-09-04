@@ -12,7 +12,7 @@
   background-color: white !important;
 }
 .navbar-nav {
-  border-left: 1px solid gray;
+  /* border-left: 1px solid gray; */
 }
 .navbar-nav a {
   color: black !important;
@@ -62,8 +62,8 @@
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
-  gap: 40px;
-  font-size: 20px;
+  gap: 20px;
+  font-size: 18px !important;
 }
 
 .btn__search {
@@ -86,7 +86,7 @@
 .nav__top__icons__item i {
   transition: color 0.3s ease-in-out !important;
 }
-.nav__top__icons__item:hover i {
+.nav__top__icons__item i:hover {
   color: var(--main-color) !important;
 }
 
@@ -212,4 +212,119 @@
   .nav__top__brand {
     padding-left: 60px;
   }
+}
+
+.nav__top__search {
+  display: none;
+}
+
+.search_icon {
+  transition: color 0.15s ease-in-out;
+  cursor: pointer;
+  display: block;
+  margin-left: auto;
+}
+
+.search_icon:hover {
+  color: var(--main-color);
+}
+
+.nav__top__search.openSearch {
+  display: block;
+  position: absolute;
+  top: 40px;
+  right: -10px;
+  z-index: 10;
+  width: 250px;
+}
+
+.nav__top__search input::placeholder {
+  font-size: 15px;
+}
+
+.search__container {
+  /* display: inline-flex; */
+  width: 50%;
+  position: relative;
+}
+
+.nav__links {
+  width: 70%;
+}
+/* .dropDown__person {
+  position: absolute;
+  opacity: 0;
+  transform: translateY(-20px);
+  z-index: 2;
+  top: 35px;
+  left: 0;
+  padding: 0;
+  transition: all 0.3s;
+  overflow: hidden;
+  max-height: 0;
+} */
+
+.dropDown__person {
+  list-style: none;
+  position: absolute;
+  top: 30px;
+  background-color: #eee;
+  max-height: 0px;
+  overflow: hidden;
+  transition: all 0.7s;
+  z-index: 10;
+  padding: 0;
+  border-radius: 5px;
+}
+
+.dropDown__person.openDropPerson {
+  /* opacity: 1; */
+  transform: translateY(0px);
+  max-height: 300px;
+}
+
+.dropDown__person li {
+  list-style: none;
+  text-decoration: none;
+  padding: 10px;
+  background-color: #ddd;
+  width: 150px;
+  border-bottom: 1px solid #eee;
+  transition: all 0.3s;
+}
+
+.dropDown__person li:hover {
+  background-color: #eee;
+}
+
+/* .dropDown__person::after {
+  content: "";
+  position: absolute;
+  top: -40px;
+  left: 0;
+  border-color: transparent transparent black transparent;
+  border-width: 20px;
+  border-style: solid;
+  z-index: 10;
+} */
+
+.profile {
+  position: relative;
+}
+
+.profile__status {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: rgb(27, 186, 27);
+  position: absolute;
+  top: 0;
+  left: -2px;
+  z-index: 10;
+}
+
+.profile__title {
+  font-size: 15px;
+  /* width: 100px;
+  display: inline-block; */
 }

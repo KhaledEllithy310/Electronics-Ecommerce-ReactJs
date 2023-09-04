@@ -1,0 +1,131 @@
+:root {
+  --main-color: #fedc20;
+  --sec-color: #333e48;
+}
+
+.form__container {
+  background-image: url("../assets/images/background-form.jpg");
+  background-position: center;
+  background-size: cover;
+  height: calc(100vh - 102px);
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form__container::after {
+  content: "";
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.493);
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.form__content {
+  background-color: #cdc8c4d1;
+  text-align: center;
+  width: 40%;
+  margin: auto;
+  padding: 30px 0;
+  border-radius: 20px;
+  box-shadow: 0 0 40px black;
+  /* box-shadow: 0 0 10px white; */
+}
+
+.form__content__inner {
+  padding: 10px;
+}
+
+.form__content__title {
+  text-transform: capitalize;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.input__container {
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 30px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 25px;
+  margin-bottom: 5px;
+}
+
+.input__container input {
+  border-radius: 5px;
+  border: none;
+  width: 50%;
+  /* margin-left: 100px; */
+  padding: 5px 10px;
+}
+
+.input__container input:focus {
+  outline: none;
+}
+
+.input__container .input__label {
+  text-align: right;
+  width: 125px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.gender__container {
+  width: 50%;
+}
+
+.gender__container__inner label {
+  width: 30px;
+}
+.gender__container__inner {
+  text-align: left;
+}
+
+.gender__container__inner input {
+  width: 30px;
+}
+
+.input__container__check {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  flex-flow: row nowrap;
+}
+
+.input__container__check label {
+  font-size: 14px;
+  width: 70%;
+  margin: 0;
+  font-weight: 600;
+}
+
+.btn__form {
+  background-color: var(--main-color);
+  text-transform: capitalize;
+  padding: 10px 40px;
+  border-radius: 30px;
+  border: none;
+  transition: all 0.5s;
+  margin-top: 30px;
+}
+
+.btn__form:hover {
+  background-color: var(--sec-color);
+  color: white;
+}
+
+.error__message {
+  margin: 0;
+  font-weight: 700;
+  font-size: 14px;
+  /* background-color: rgba(255, 0, 0, 0.348);
+    color: white !important;
+    width: fit-content;
+    margin: auto; */
+}

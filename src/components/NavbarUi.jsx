@@ -1,10 +1,55 @@
-import { Col, Container, Nav, NavDropdown, Navbar, Row } from "react-bootstrap";
+import { Col, Container, Nav, Navbar, Row } from "react-bootstrap";
 import "./NavbarUi.css";
-const NavbarUi = () => {
-  const dropList = () => {
-    let Category__list = document.getElementById("Category__list");
+import { NavLink } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { logOut } from "../redux/isLoggedInSlice";
 
-    Category__list.classList.toggle("openSubMenu");
+const NavbarUi = () => {
+  const [currentUser, setCurrentUser] = useState({});
+  const [title, setTitle] = useState("");
+  const { status } = useSelector((state) => state.isLoggedIn);
+  const dispatch = useDispatch();
+  const [isLoggedIn, setIsLoggedIn] = useState(status);
+  // const dropList = () => {
+  //   let Category__list = document.getElementById("Category__list");
+
+  //   Category__list.classList.toggle("openSubMenu");
+  // };
+
+  // useEffect(() => {
+  //   if (localStorage.getItem("user")) {
+  //     let user = JSON.parse(localStorage.getItem("user"));
+  //     if (user.gender == "male") {
+  //       setTitle("Mr.");
+  //       console.log("Mr.");
+  //     } else {
+  //       setTitle("Mrs.");
+  //       console.log("Mrs.");
+  //     }
+
+  //     setCurrentUser(user);
+  //   }
+  // }, [currentUser]);
+
+  useEffect(() => {
+    if (localStorage.getItem("user")) {
+      let user = JSON.parse(localStorage.getItem("user"));
+      setCurrentUser(user);
+      setIsLoggedIn(status);
+      setTitle(user.gender === "male" ? "Mr." : "Mrs.");
+      console.log(isLoggedIn);
+    } else {
+      setCurrentUser({});
+      setIsLoggedIn(status);
+      console.log(isLoggedIn);
+      setTitle("");
+    }
+  }, [isLoggedIn, status]);
+
+  const handlerOpenPerson = () => {
+    let dropDown__person = document.getElementById("dropDown__person");
+    dropDown__person.classList.toggle("openDropPerson");
   };
 
   const openSearch = () => {
@@ -19,44 +64,145 @@ const NavbarUi = () => {
       search_icon.innerHTML = '<i class="bi bi-search"></i>';
     }
   };
+
+  const handleLogout = () => {
+    localStorage.removeItem("user");
+    setCurrentUser({});
+    dispatch(logOut());
+  };
+
   return (
     <div className="navbar__container">
-      <Row>
-        <Col xl={12}>
-          <Container>
+      <Container>
+        <Row>
+          <Col lg={12}>
             <div className="nav__top">
-              <div className="nav__top__brand nav__width">electhub</div>
-              <div className="search__container">
-                {" "}
-                <div
-                  className="search_icon"
-                  id="search_icon"
-                  onClick={openSearch}
+              <div className="nav__top__brand nav__width">Electhub</div>
+              <div className="nav__links">
+                <Navbar
+                  expand="lg"
+                  className="bg-body-tertiary justify-content-center"
                 >
-                  {" "}
-                  <i className="bi bi-search"></i>
-                </div>
-                <form
-                  className="nav__top__search nav__width"
-                  id="nav__top__search"
-                >
-                  <input type="search" placeholder="search products here..." />
-                  <button
-                    type="submit"
-                    className="btn__search"
-                    id="btn__search"
-                  >
-                    {" "}
-                    <i className="bi bi-search"></i>
-                  </button>
-                </form>
+                  {/* <Container> */}
+                  <Navbar.Toggle aria-controls="basic-navbar-nav" />
+
+                  <Navbar.Collapse id="basic-navbar-nav">
+                    {/* <div className="Category__dropdown" onClick={dropList}>
+                      <h4> Browse All Category</h4>
+                      <i className="bi bi-caret-down-fill"></i>
+                      <ul className="Category__list" id="Category__list">
+                        <li>
+                          {" "}
+                          <a>
+                            {" "}
+                            <i className="bi bi-arrow-right"></i>
+                            headphone
+                          </a>
+                        </li>
+                        <li>
+                          <a>
+                            {" "}
+                            <i className="bi bi-arrow-right"></i>
+                            tablet
+                          </a>
+                        </li>
+                        <li>
+                          <a>
+                            {" "}
+                            <i className="bi bi-arrow-right"></i>
+                            watch
+                          </a>
+                        </li>
+                        <li>
+                          <a>
+                            {" "}
+                            <i className="bi bi-arrow-right"></i>
+                            android
+                          </a>
+                        </li>
+                        <li>
+                          <a>
+                            {" "}
+                            <i className="bi bi-arrow-right"></i>
+                            more categories
+                          </a>
+                        </li>
+                      </ul>
+                    </div> */}
+                    <Nav className="">
+                      <NavLink to="/" className="nav-link">
+                        Home
+                      </NavLink>
+                      <NavLink to="/home" className="nav-link">
+                        All Products
+                      </NavLink>
+                      <NavLink to="/home" className="nav-link">
+                        About Us
+                      </NavLink>
+                      <NavLink to="/home" className="nav-link">
+                        Contact Us
+                      </NavLink>
+                    </Nav>
+                  </Navbar.Collapse>
+                  {/* </Container> */}
+                </Navbar>
               </div>
 
               <div className="nav__top__icons nav__width">
-                {" "}
-                <Nav.Link href="#pricing" className="nav__top__icons__item">
-                  <i className="bi bi-person"></i>
-                  <div className="badge__icon">0</div>
+                <div className="search__container">
+                  {" "}
+                  <div
+                    className="search_icon"
+                    id="search_icon"
+                    onClick={openSearch}
+                  >
+                    {" "}
+                    <i className="bi bi-search"></i>
+                  </div>
+                  <form
+                    className="nav__top__search nav__width"
+                    id="nav__top__search"
+                  >
+                    <input
+                      type="search"
+                      placeholder="search products here..."
+                    />
+                    <button
+                      type="submit"
+                      className="btn__search"
+                      id="btn__search"
+                    >
+                      {" "}
+                      <i className="bi bi-search"></i>
+                    </button>
+                  </form>
+                </div>
+                <Nav.Link
+                  href="#pricing"
+                  className="nav__top__icons__item profile"
+                  onClick={handlerOpenPerson}
+                >
+                  <i className="bi bi-person "></i>
+                  {isLoggedIn ? <div className="profile__status"></div> : ""}
+                  <ul className="dropDown__person" id="dropDown__person">
+                    {isLoggedIn ? (
+                      <>
+                        <li>
+                          Hello {title} {currentUser.userName}
+                        </li>
+                        <li onClick={handleLogout}>Logout</li>
+                      </>
+                    ) : (
+                      <>
+                        <NavLink to={`/signin`} className="nav-link">
+                          <li>SignIn</li>
+                        </NavLink>
+                        <NavLink to={`/signup`} className="nav-link">
+                          <li>SignUp</li>
+                        </NavLink>
+                      </>
+                    )}
+                  </ul>
                 </Nav.Link>
                 <Nav.Link href="#pricing" className="nav__top__icons__item">
                   <i className="bi bi-suit-heart"></i>
@@ -68,83 +214,10 @@ const NavbarUi = () => {
                 </Nav.Link>
               </div>
             </div>
-          </Container>
-        </Col>
-        <Col xl={12}>
-          {" "}
-          <Navbar expand="lg" className="bg-body-tertiary">
-            <Container>
-              <Navbar.Toggle aria-controls="basic-navbar-nav" />
-
-              <Navbar.Collapse id="basic-navbar-nav">
-                <div className="Category__dropdown" onClick={dropList}>
-                  <h4> Browse All Category</h4>
-                  <i className="bi bi-caret-down-fill"></i>
-                  <ul className="Category__list" id="Category__list">
-                    <li>
-                      {" "}
-                      <a>
-                        {" "}
-                        <i className="bi bi-arrow-right"></i>
-                        headphone
-                      </a>
-                    </li>
-                    <li>
-                      <a>
-                        {" "}
-                        <i className="bi bi-arrow-right"></i>
-                        tablet
-                      </a>
-                    </li>
-                    <li>
-                      <a>
-                        {" "}
-                        <i className="bi bi-arrow-right"></i>
-                        watch
-                      </a>
-                    </li>
-                    <li>
-                      <a>
-                        {" "}
-                        <i className="bi bi-arrow-right"></i>
-                        android
-                      </a>
-                    </li>
-                    <li>
-                      <a>
-                        {" "}
-                        <i className="bi bi-arrow-right"></i>
-                        more categories
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-                <Nav className="me-auto">
-                  <Nav.Link href="#home">Home</Nav.Link>
-                  <Nav.Link href="#home">All Products</Nav.Link>
-                  <Nav.Link href="#link">All Brands</Nav.Link>
-                  <Nav.Link href="#link">About Us</Nav.Link>
-                  <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-                    <NavDropdown.Item href="#action/3.1">
-                      Action
-                    </NavDropdown.Item>
-                    <NavDropdown.Item href="#action/3.2">
-                      Another action
-                    </NavDropdown.Item>
-                    <NavDropdown.Item href="#action/3.3">
-                      Something
-                    </NavDropdown.Item>
-                    <NavDropdown.Divider />
-                    <NavDropdown.Item href="#action/3.4">
-                      Separated link
-                    </NavDropdown.Item>
-                  </NavDropdown>
-                </Nav>
-              </Navbar.Collapse>
-            </Container>
-          </Navbar>
-        </Col>
-      </Row>
+          </Col>
+          <Col lg={12}> </Col>
+        </Row>
+      </Container>
     </div>
   );
 };
