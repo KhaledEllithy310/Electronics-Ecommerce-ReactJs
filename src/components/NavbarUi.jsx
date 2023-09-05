@@ -4,6 +4,7 @@ import { NavLink } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { logOut } from "../redux/isLoggedInSlice";
+import CartWindow from "./CartWindow";
 
 const NavbarUi = () => {
   const [currentUser, setCurrentUser] = useState({});
@@ -71,6 +72,18 @@ const NavbarUi = () => {
     dispatch(logOut());
   };
 
+  // eslint-disable-next-line no-unused-vars
+  const [show, setShow] = useState(false);
+  const [showCart, setShowCart] = useState(false);
+
+  // const handleShow = () => setShow(true);
+  const openCart = () => {
+    setShowCart(!showCart);
+  };
+
+  const handleCloseCart = () => {
+    setShowCart(false);
+  };
   return (
     <div className="navbar__container">
       <Container>
@@ -208,7 +221,11 @@ const NavbarUi = () => {
                   <i className="bi bi-suit-heart"></i>
                   <div className="badge__icon">0</div>
                 </Nav.Link>
-                <Nav.Link href="#pricing" className="nav__top__icons__item">
+                <Nav.Link
+                  href="#pricing"
+                  className="nav__top__icons__item"
+                  onClick={openCart}
+                >
                   <i className="bi bi-cart3"></i>
                   <div className="badge__icon">0</div>
                 </Nav.Link>
@@ -218,6 +235,7 @@ const NavbarUi = () => {
           <Col lg={12}> </Col>
         </Row>
       </Container>
+      {showCart && <CartWindow handleClose={handleCloseCart} />}
     </div>
   );
 };
